@@ -3,7 +3,7 @@
     "profile": {
         "username": "SSapp",
         "email": "your-email@domain.com",
-        "avatar": "/resources/images/cardinal.png"
+        "avatar": "/resources/images/file-upload-icon.png"
     },
     "menu": {
         "defaultMenuConfig": {
@@ -14,9 +14,9 @@
             "404": "/pages/404.html"
         },
         "pages": [{
-                "name": "Home",
+                "name": "My Files",
                 "path": "/home",
-                "icon": "fa-home",
+                "icon": "fa-folder-open",
                 "pageSrc": "home.html"
             }
         ]

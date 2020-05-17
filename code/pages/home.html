@@ -1,5 +1,27 @@
-<psk-page title="Cardinal.js">
-    <psk-card title="Cardinal.jsMini Framework for building web applications">
-        <p>Mini Framework for building web applications</p>
+<psk-container controller-name="FileShareController">
+    <psk-card title="File Sharing">
+
+        <p>File Sharing SSApp!</p>
+
+        <psk-button event-name="echo">
+          <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
+          Echo
+        </psk-button>
+
+        <!-- View -->
+        <psk-container controller-name="UploadController">
+          <psk-chapter title="Upload test">
+            <!-- Populate this list with the file names selected with the psk-files-chooser component -->
+            <ul id="files-for-upload"></ul>
+            <p><psk-files-chooser label="Choose files" event-name="files-selected"></psk-files-chooser></p>
+            <psk-button button-class="btn btn-secondary" event-name="upload-single-file">
+              <psk-icon icon="plus" color="rgb(255, 255, 255)"></psk-icon>
+              Add
+            </psk-button>
+          </psk-chapter>
+
+          <psk-button label="Download file" button-class="btn btn-primary" event-name="download"></psk-button>
+        </psk-container>
+
     </psk-card>
-</psk-page>
+</psk-container>
