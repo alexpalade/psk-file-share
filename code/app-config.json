@@ -16,7 +16,7 @@
         "pages": [{
                 "name": "My Files",
                 "path": "/home",
-                "icon": "fa-folder-open",
+                "icon": "fa-home",
                 "pageSrc": "home.html"
             }
         ]

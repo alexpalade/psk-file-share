@@ -14,11 +14,14 @@ export default class ListModel {
     */
     save(data) {}
 
+
     /**
     * Return a copy of the data
     */
     toJSON() {
         return JSON.parse(JSON.stringify(this.data));
     }
+    
+    
 
 }

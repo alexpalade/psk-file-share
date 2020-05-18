@@ -16,12 +16,35 @@ export default class FileShareController extends ContainerController {
         this.on('echo', (e) => {
             e.preventDefault();
             e.stopImmediatePropagation();
-            console.log("hello from echo");
-            this.echo();
+            console.log("attempting to create Dossier!");
+            this.createDossier();
         })
 
-
     }
+    
+    createDossier() {
+		
+		const pskCommunicationNodeAddrs = ["http://localhost:8080/"];
+
+		const se = require("swarm-engine");
+
+		try {
+			se.initialise();
+		}	catch(err) {
+			console.log(err.message);
+		}
+		
+		const powerCord = new se.SmartRemoteChannelPowerCord(pskCommunicationNodeAddrs);
+		$$.swarmEngine.plug("*", powerCord);
+
+		$$.interactions.startSwarmAs("demo/agent/system", "DossierUtils", "newDossier", "Hello swarm world!")
+			.onReturn((err, result)=>{
+				  if(err){
+					  throw err;
+				  }
+				  console.log("from swarm: " + result);
+			});	
+	}
 
     echo() {
         const pskCommunicationNodeAddrs = ["http://localhost:8080/"];
@@ -29,7 +52,7 @@ export default class FileShareController extends ContainerController {
         se.initialise();
         const powerCord = new se.SmartRemoteChannelPowerCord(pskCommunicationNodeAddrs);
         $$.swarmEngine.plug("*", powerCord);
-        console.log("fine until now!");
+
         $$.interactions.startSwarmAs("demo/agent/system", "Echo", "say", "Hello swarm world!")
           .onReturn((err, result)=>{
               if(err){

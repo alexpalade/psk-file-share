@@ -198,3 +198,14 @@ ol>li::before {
         font-size: 1rem;
     }
 }
+
+.psk-card .file-info-card .row {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.8rem !important;
+}
+
+.psk-card .file-info-card .row col-form-label {
+  margin: 0 !important;
+  padding: 0 !important;
+}
