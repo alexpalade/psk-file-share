@@ -36,6 +36,22 @@ $$.swarms.describe("DossierUtils", {
 			});
 		},
 		
+	getMountPoints: function(seed) {
+			let endpoint = "http://localhost:8080";
+			const EDFS = require("edfs");
+			const edfs = EDFS.attachToEndpoint(endpoint);
+			console.log("Attempting to get mounted dossiers ...");
+			edfs.loadRawDossier(seed, (err, dossier) => {
+				if (err) {
+					console.log("Error mounting wallet");
+					throw err;
+				}
+				dossier.listMountedDossiers("/", (err, list) => {
+					console.log("Dossiers: " + list);
+				});
+			});			
+	}
+		
     mountPublic: function() {
 		console.log("Requiring edfs...");
 		const EDFS = require("edfs");

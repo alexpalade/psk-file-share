@@ -1,62 +1,58 @@
 <psk-container controller-name="FileShareController">
-    <psk-card title="File Sharing">
 
-        <p>File Sharing SSApp!</p>
+		<!-- Files in dossier -->
+		<psk-chapter title="Available files">
 
-        <psk-button event-name="echo">
-          <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
-          Echo
-        </psk-button>
-        
-
-        <!-- View -->
-        <psk-container controller-name="UploadController">
-			<psk-button event-name="debug">
+			<psk-for-each data-view-model="files">            
+				<psk-form-row layout="xs=[1,11] s=[1,11] m=[1,11] l=[1,11] xl=[1,11]">
+					<psk-button style="flex-basis:2.5%" event-name="download-file" button-class="btn">
+						<psk-icon icon="download" color="#4C71DE"></psk-icon>							
+					</psk-button>
+					<psk-label view-model="name"></psk-label>
+				</psk-form-row>
+			</psk-for-each>
+			
+			<psk-button event-name="refresh-files">
 				<psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
-				Debug
+				Refresh
 			</psk-button>
-			
-		   <psk-button label="Mount public" button-class="btn btn-primary" event-name="mount-public"></psk-button>
-		   
-		   <psk-chapter title="Available files">
-			   <ul id="private-files-list"></ul>
-			</psk-chapter>
-			
-			<psk-card title="Upload File" class="file-info-card" id="upload-file-info">
-				<psk-grid columns="2" layout="xs=[1,12] s=[1,6] m=[1,6] l=[1,6] xl=[1,6]">
-					<psk-label label="Name: "></psk-label> 
-					<psk-label label="@file.name"></psk-label>
-					<psk-label label="Type: "></psk-label> 
-					<psk-label label="@file.type"></psk-label>
-					<psk-label label="Size: "></psk-label> 
-					<psk-label label="@file.size"></psk-label>
-				</psk-grid>
-			</psk-card>
-			
+
+		</psk-chapter>
+
+		<!-- Upload new file-->
+		<psk-chapter title="Upload file">
 			<psk-card>
 				<psk-files-chooser label="Choose file" event-name="files-selected">
 				</psk-files-chooser>
-				<psk-button button-class="btn btn-secondary" event-name="upload-single-file">
+				<psk-button button-class="btn btn-secondary" event-name="upload-single-file" id="upload-button">
 					<psk-icon icon="upload" color="rgb(255, 255, 255)"></psk-icon>
 					Upload
 				</psk-button>
 			</psk-card>
 
-        </psk-container>
-        
-                <!-- View -->
-        <psk-container controller-name="UploadController">
-          <psk-chapter title="Public test">
-            <!-- Populate this list with the file names selected with the psk-files-chooser component -->
-            <ul id="files-for-upload-public"></ul>
-            <p><psk-files-chooser label="Choose file" event-name="files-selected-public"></psk-files-chooser></p>
-            <psk-button button-class="btn btn-secondary" event-name="upload-single-file-public">
-              <psk-icon icon="upload" color="rgb(255, 255, 255)"></psk-icon>
-              Add
-            </psk-button>
-          </psk-chapter>
-          <psk-button label="Download file" button-class="btn btn-primary" event-name="download-public"></psk-button>
-        </psk-container>
+			<psk-card id="upload-file-info">
+				<table style="width: auto;" class="table table-sm">
+				  <tbody>
+					<tr>
+					  <th scope="row"><psk-label label="Name"></psk-label></th>
+					  <td><psk-label label="@selectedFile.name"></psk-label></td>
+					</tr>
+					<tr>
+					  <th scope="row"><psk-label label="Type"></psk-label></th>
+					  <td><psk-label label="@selectedFile.type"></psk-label></td>
+					</tr>
+					<tr>
+					  <th scope="row"><psk-label label="Size"></psk-label></th>
+					  <td><psk-label label="@selectedFile.size"></psk-label></td>
+					</tr>
+				  </tbody>
+				</table>
+			</psk-card>
+		</psk-chapter>
+		
+		<!-- Utilities-->
+		<psk-button event-name="echo">Echo</psk-button>
 
-    </psk-card>
+		<psk-button label="Mount public" button-class="btn btn-primary" event-name="mount-public"></psk-button>
+
 </psk-container>
