@@ -2,7 +2,9 @@
 
 A SSApp for privatesky for storing and sharing files through a users' wallet.
 
-Important: File sharing is not implemented. The app needs refresh to see the latest uploads. File size limited to 64K.
+- file sharing is not implemented (only storage)
+- the app needs refresh to see the latest uploads
+- file size limited to 64K
 
 ## How to install
 
