@@ -1,29 +1,16 @@
-# File Share PSK SSApp
+# File storage/sharing PSK SSApp
 
-Based on ssapp-template.
+A SSApp for privatesky for storing and sharing files through a users' wallet.
+
+Important: File sharing is not implemented. The app needs refresh to see the latest uploads. File size limited to 64K.
 
 ## How to install
 
-### Prerequisites (see [docs](https://privatesky.xyz/?Start/installation))
-You need Python 2.7 and Node 12.14.0
+Please follow the "How to create... [a SSApp](https://privatesky.xyz/?Howto/a-ssapp&chapter=ssapp-tutorial)" tutorial from the Privatesky [development hub](https://privatesky.xyz/).
+Instead of `https://github.com/username/todo-app.git`, use `https://github.com/alexpalade/psk-file-share`.
 
-    python --version
-    node --version
+**Additional requirement:**
 
-Tip: you can use `virtualenv` and `nvm install 12.14.0` on Linux.
-
-### Install web-wallet (from [docs](https://privatesky.xyz/?Start/installation))
-    git clone https://github.com/PrivateSky/web-wallet.git web-wallet
-    cd web-wallet
-    npm install
-    npm run server
-    npm run build-all
-Check if the this page works: [http://localhost:8080/secure-channels/loader](http://localhost:8080/secure-channels/loader)
-
-### Add SSApp
-
-Make sure the web-wallet web server is running.
-
-Fetch the application from git:
-
-    npm run add file-share https://github.com/alexpalade/psk-file-share
+ - (not recommended) currently, we expect to find the root app's seed in `APP_CONFIG.WALLET_SEED`. You might do it by adding `APP_CONFIG.WALLET_SEED = wallet.getSeed();` in `web-server/secure-channels/loader/controllers/MainController.js`
+ - (better) refactor the application to get the seed from a swarm
+ - (some day) load the dossier from the PIN (not yet possible in privatesky)
