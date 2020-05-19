@@ -1,6 +1,6 @@
 # File storage/sharing PSK SSApp
 
-A SSApp for privatesky for storing and sharing files through a users' wallet.
+A privatesky SSApp for storing and sharing files through a users' wallet.
 
 - file sharing is not implemented (only storage)
 - the app needs refresh to see the latest uploads
@@ -8,7 +8,7 @@ A SSApp for privatesky for storing and sharing files through a users' wallet.
 
 ## How to install
 
-Please follow the "How to create... [a SSApp](https://privatesky.xyz/?Howto/a-ssapp&chapter=ssapp-tutorial)" tutorial from the Privatesky [development hub](https://privatesky.xyz/).
+Please follow the "How to create... a SSApp" [tutorial](https://privatesky.xyz/?Howto/a-ssapp&chapter=ssapp-tutorial) from the Privatesky [development hub](https://privatesky.xyz/).
 Instead of `https://github.com/username/todo-app.git`, use `https://github.com/alexpalade/psk-file-share`.
 
 **Additional requirement:**
